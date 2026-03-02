@@ -26,19 +26,11 @@ class ContentNavigationWriterStep extends PublishAwareStep implements DataImport
      */
     protected $utilEncoding;
 
-    /**
-     * @param \Spryker\Zed\ContentNavigationDataImport\Dependency\Service\ContentNavigationDataImportToUtilEncodingInterface $utilEncoding
-     */
     public function __construct(ContentNavigationDataImportToUtilEncodingInterface $utilEncoding)
     {
         $this->utilEncoding = $utilEncoding;
     }
 
-    /**
-     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
-     *
-     * @return void
-     */
     public function execute(DataSetInterface $dataSet): void
     {
         $contentNavigationEntity = $this->saveContentNavigation($dataSet);
@@ -54,11 +46,6 @@ class ContentNavigationWriterStep extends PublishAwareStep implements DataImport
         );
     }
 
-    /**
-     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
-     *
-     * @return \Orm\Zed\Content\Persistence\SpyContent
-     */
     protected function saveContentNavigation(DataSetInterface $dataSet): SpyContent
     {
         $contentNavigationEntity = SpyContentQuery::create()
@@ -74,12 +61,6 @@ class ContentNavigationWriterStep extends PublishAwareStep implements DataImport
         return $contentNavigationEntity;
     }
 
-    /**
-     * @param array $localizedNavigationTerms
-     * @param int $idContentNavigationTerm
-     *
-     * @return void
-     */
     protected function saveContentLocalizedNavigationTerms(array $localizedNavigationTerms, int $idContentNavigationTerm): void
     {
         /** @var \Propel\Runtime\Collection\ObjectCollection $contentLocalizedCollection */
@@ -105,11 +86,6 @@ class ContentNavigationWriterStep extends PublishAwareStep implements DataImport
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ContentNavigationTermTransfer $contentNavigationTermTransfer
-     *
-     * @return string|null
-     */
     protected function getEncodedParameters(ContentNavigationTermTransfer $contentNavigationTermTransfer): ?string
     {
         return $this->utilEncoding->encodeJson($contentNavigationTermTransfer->toArray());

@@ -26,9 +26,6 @@ class CheckLocalizedContentNavigationTermStep implements DataImportStepInterface
      */
     protected $contentNavigationFacade;
 
-    /**
-     * @param \Spryker\Zed\ContentNavigationDataImport\Dependency\Facade\ContentNavigationDataImportToContentNavigationFacadeInterface $contentNavigationFacade
-     */
     public function __construct(ContentNavigationDataImportToContentNavigationFacadeInterface $contentNavigationFacade)
     {
         $this->contentNavigationFacade = $contentNavigationFacade;

@@ -26,9 +26,6 @@ class CheckContentDataStep implements DataImportStepInterface
      */
     protected $contentFacade;
 
-    /**
-     * @param \Spryker\Zed\ContentNavigationDataImport\Dependency\Facade\ContentNavigationDataImportToContentInterface $contentFacade
-     */
     public function __construct(ContentNavigationDataImportToContentInterface $contentFacade)
     {
         $this->contentFacade = $contentFacade;
@@ -57,11 +54,6 @@ class CheckContentDataStep implements DataImportStepInterface
         }
     }
 
-    /**
-     * @param \Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface $dataSet
-     *
-     * @return \Generated\Shared\Transfer\ContentTransfer
-     */
     protected function createContentTransfer(DataSetInterface $dataSet): ContentTransfer
     {
         return (new ContentTransfer())->setName($dataSet[ContentTransfer::NAME])

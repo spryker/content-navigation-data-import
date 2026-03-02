@@ -31,9 +31,6 @@ class ContentNavigationDataImportPluginTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testImporterPopulatesContentsTables(): void
     {
         // Arrange
@@ -50,9 +47,6 @@ class ContentNavigationDataImportPluginTest extends Unit
         $this->assertTrue($dataImporterReportTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testImportWithEmptyDefaultLocaleDataReturnsFalse(): void
     {
         // Arrange
@@ -69,9 +63,6 @@ class ContentNavigationDataImportPluginTest extends Unit
         $this->assertFalse($dataImporterReportTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testImportWithInvalidNavigationKeyReturnsFalse(): void
     {
         // Arrange
@@ -87,11 +78,6 @@ class ContentNavigationDataImportPluginTest extends Unit
         $this->assertFalse($dataImporterReportTransfer->getIsSuccess());
     }
 
-    /**
-     * @param string $fileName
-     *
-     * @return \Generated\Shared\Transfer\DataImporterConfigurationTransfer
-     */
     protected function createDataImportConfigurationTransfer(string $fileName): DataImporterConfigurationTransfer
     {
         $dataImporterReaderConfigurationTransfer = new DataImporterReaderConfigurationTransfer();

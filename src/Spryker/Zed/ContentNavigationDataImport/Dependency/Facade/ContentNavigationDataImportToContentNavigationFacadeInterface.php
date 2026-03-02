@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\ContentValidationResponseTransfer;
 
 interface ContentNavigationDataImportToContentNavigationFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ContentNavigationTermTransfer $contentNavigationTermTransfer
-     *
-     * @return \Generated\Shared\Transfer\ContentValidationResponseTransfer
-     */
     public function validateContentNavigationTerm(ContentNavigationTermTransfer $contentNavigationTermTransfer): ContentValidationResponseTransfer;
 }

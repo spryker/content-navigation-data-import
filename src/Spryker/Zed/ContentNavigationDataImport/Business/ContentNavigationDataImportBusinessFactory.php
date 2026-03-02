@@ -26,9 +26,6 @@ use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface
  */
 class ContentNavigationDataImportBusinessFactory extends DataImportBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\DataImport\Business\Model\DataImporterInterface
-     */
     public function getContentNavigationDataImport(): DataImporterInterface
     {
         $dataImporter = $this->getCsvDataImporterFromConfig(
@@ -47,57 +44,36 @@ class ContentNavigationDataImportBusinessFactory extends DataImportBusinessFacto
         return $dataImporter;
     }
 
-    /**
-     * @return \Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface
-     */
     public function createPrepareLocalizedContentNavigationTermStep(): DataImportStepInterface
     {
         return new PrepareLocalizedContentNavigationTermStep();
     }
 
-    /**
-     * @return \Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface
-     */
     public function createCheckLocalizedContentNavigationTermStep(): DataImportStepInterface
     {
         return new CheckLocalizedContentNavigationTermStep($this->getContentNavigationFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface
-     */
     public function createContentNavigationWriterStep(): DataImportStepInterface
     {
         return new ContentNavigationWriterStep($this->getUtilEncoding());
     }
 
-    /**
-     * @return \Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface
-     */
     public function createCheckContentDataStep(): DataImportStepInterface
     {
         return new CheckContentDataStep($this->getContentFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\ContentNavigationDataImport\Dependency\Facade\ContentNavigationDataImportToContentNavigationFacadeInterface
-     */
     public function getContentNavigationFacade(): ContentNavigationDataImportToContentNavigationFacadeInterface
     {
         return $this->getProvidedDependency(ContentNavigationDataImportDependencyProvider::FACADE_CONTENT_NAVIGATION);
     }
 
-    /**
-     * @return \Spryker\Zed\ContentNavigationDataImport\Dependency\Facade\ContentNavigationDataImportToContentInterface
-     */
     public function getContentFacade(): ContentNavigationDataImportToContentInterface
     {
         return $this->getProvidedDependency(ContentNavigationDataImportDependencyProvider::FACADE_CONTENT);
     }
 
-    /**
-     * @return \Spryker\Zed\ContentNavigationDataImport\Dependency\Service\ContentNavigationDataImportToUtilEncodingInterface
-     */
     public function getUtilEncoding(): ContentNavigationDataImportToUtilEncodingInterface
     {
         return $this->getProvidedDependency(ContentNavigationDataImportDependencyProvider::SERVICE_UTIL_ENCODING);

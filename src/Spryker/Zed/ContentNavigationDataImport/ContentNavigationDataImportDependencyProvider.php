@@ -33,11 +33,6 @@ class ContentNavigationDataImportDependencyProvider extends DataImportDependency
      */
     public const SERVICE_UTIL_ENCODING = 'SERVICE_UTIL_ENCODING';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = parent::provideBusinessLayerDependencies($container);
@@ -48,11 +43,6 @@ class ContentNavigationDataImportDependencyProvider extends DataImportDependency
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addContentNavigationFacade(Container $container): Container
     {
         $container->set(static::FACADE_CONTENT_NAVIGATION, function (Container $container) {
@@ -64,11 +54,6 @@ class ContentNavigationDataImportDependencyProvider extends DataImportDependency
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addContentFacade(Container $container): Container
     {
         $container->set(static::FACADE_CONTENT, function (Container $container) {
@@ -80,11 +65,6 @@ class ContentNavigationDataImportDependencyProvider extends DataImportDependency
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addUtilEncodingService(Container $container): Container
     {
         $container->set(static::SERVICE_UTIL_ENCODING, function (Container $container) {
